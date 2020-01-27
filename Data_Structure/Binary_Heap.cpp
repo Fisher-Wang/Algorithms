@@ -32,14 +32,14 @@ class BinaryHeap{
     bool empty(){
         return N == 0;
     }
-    int top(){
+    T top(){
         return a[1];
     }
-    void insert(int x){
+    void insert(T x){
         a[++N] = x;
         swim(N);
     }
-    int pop(){
+    T pop(){
         T rt = a[1];
         a[1] = a[N];
         a[N--] = 0;
