@@ -51,11 +51,11 @@ class IndexBinaryHeap{
         if(val < old_val) swim(qp[k]);
         else sink(qp[k]);
     }
-    T delTop(){//返回Val;
+    T delTop(){//杩斿洖Val;
         T rt = key[pq[1]];
-        //注意：对于key，永远只修改，不删除，要改就改索引！
+        //娉ㄦ剰锛氬浜巏ey锛屾案杩滃彧鍒犻櫎锛屼笉淇敼锛岃鏀瑰氨鏀圭储寮曪紒
         key[pq[1]] = 0;
-        //可以用链表的思维，修改完值了以后才可以丢掉地址
+        //鍙互鐢ㄩ摼琛ㄧ殑鎬濈淮锛屼慨鏀瑰畬鍊间簡浠ュ悗鎵嶅彲浠ヤ涪鎺夊湴鍧�
         qp[pq[1]] = 0;
         qp[pq[N]] = 1;
         pq[1] = pq[N];
@@ -66,7 +66,7 @@ class IndexBinaryHeap{
     }
     void del(int k){
         key[k] = 0;
-        //实在想不清楚了，就把“地址”都记下来，总不会出错！
+        //瀹炲湪鎯充笉娓呮浜嗭紝灏辨妸鈥滃湴鍧�鈥濋兘璁颁笅鏉ワ紝鎬讳笉浼氬嚭閿欙紒
         int heapOrder_k = qp[k], index_N = pq[N];
         pq[heapOrder_k] = index_N;
         pq[N] = 0;
